@@ -1,0 +1,33 @@
+.lolTag {
+  margin-right: 8px;
+  color: rgb(0, 0, 0);
+  display: inline-block;
+}
+
+.lol {
+  background-color: #f80;
+}
+
+.inf {
+  background-color: #09c;
+}
+
+.unf {
+  background-color: #eb0000;
+}
+
+.tag {
+  background-color: #7b2;
+}
+
+.wtf {
+  background-color: #c000c0;
+}
+
+.wow {
+  background-color: #c4a3b3;
+}
+
+.aww {
+  background-color: #13a4a7;
+}

@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+.container:focus {
+  outline: none;
+}
+
+.selected {
+  background-color: #4c4d4f;
+}
+
+.body {
+  line-height: 1.5rem;
+  height: 3rem;
+  white-space: normal;
+  overflow: hidden;
+  margin: 8px 0 8px 0;
+}
+
+.political {
+  border-left: 2px solid orange;
+  padding-left: 6px;
+}
+
+.nws {
+  border-left: 2px solid red;
+  padding-left: 6px;
+}
+
+.participant {
+  background-color: rgba(102, 204, 255, 0.5);
+}

@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.author {
+  color: yellow;
+  text-align: left;
+}
+
+.date {
+  flex: 1;
+  font-size: 0.85rem;
+  text-align: right;
+  color: lightgray;
+}
+
+.subHeader {
+  display: flex;
+}
+
+.lolBar {
+  flex: 1;
+  font-size: 1rem;
+}
+
+.progress.expiration {
+  width: 40px;
+  height: 5px;
+  margin-bottom: 8px;
+}
+
+.loggedInAuthor {
+  color: rgb(102, 204, 255);
+}
+
+.shacknews {
+  color: rgb(145, 71, 255);
+}

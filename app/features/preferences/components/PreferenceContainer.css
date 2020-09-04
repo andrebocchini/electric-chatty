@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.description {
+  font-size: 1rem;
+}

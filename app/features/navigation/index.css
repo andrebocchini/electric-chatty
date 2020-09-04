@@ -1,0 +1,72 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.content {
+  width: calc(100vw - 50px);
+  height: calc(100vh);
+}
+
+.navigationBar {
+  width: 50px;
+  height: 100vh;
+  display: flex;
+  font-size: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(52, 52, 52);
+}
+
+.link {
+  color: gray;
+}
+
+.link:active {
+  color: white;
+}
+
+.link:hover {
+  color: white;
+}
+
+.bottomIcon {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.bottomItems {
+  display: flex;
+  flex-direction: column-reverse;
+  flex: 1;
+  justify-self: flex-start;
+  align-self: center;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.noLinkIcon {
+  margin-top: 19px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  color: gray;
+}
+
+.noLinkIcon:hover {
+  color: white;
+}
+
+.topIcon {
+  display: inline-block;
+  margin: 0 0 20px 0;
+}
+
+.topItems {
+  display: flex;
+  flex: 1;
+  justify-self: flex-end;
+  align-self: center;
+  margin-top: 12px;
+}

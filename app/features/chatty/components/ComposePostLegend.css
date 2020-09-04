@@ -1,0 +1,10 @@
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.legend {
+  flex: 1;
+  text-align: right;
+  margin-left: 20px;
+}

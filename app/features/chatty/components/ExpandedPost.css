@@ -1,0 +1,29 @@
+.author {
+  color: yellow;
+  text-align: left;
+}
+
+.body {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #4c4d4f;
+  padding: 8px;
+}
+
+.date {
+  flex: 1;
+  text-align: right;
+}
+
+.header {
+  display: flex;
+}
+
+.footer {
+  margin-bottom: 15px;
+}

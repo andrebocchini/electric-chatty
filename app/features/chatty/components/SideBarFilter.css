@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+}
+
+.filter {
+  flex: 1;
+  padding: 8px;
+  margin: -1px;
+  border-color: #4c4d4f;
+}
+
+.filter:focus {
+  outline: none;
+}

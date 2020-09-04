@@ -1,0 +1,121 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+@import '~@fortawesome/fontawesome-free/css/all.css';
+@import '~@fortawesome/fontawesome-svg-core/styles.css';
+@import '~bootstrap/dist/css/bootstrap.css';
+
+body {
+  position: relative;
+  color: white;
+  height: 100vh;
+  background-color: black;
+  font-family: Arial, Helvetica, Helvetica Neue, serif;
+  font-size: 1.25rem;
+  overflow-y: hidden;
+}
+
+/* Shack tags */
+
+.jt_red {
+  color: #f00;
+}
+.jt_green {
+  color: #8dc63f;
+}
+.jt_pink {
+  color: #f49ac1;
+}
+.jt_olive {
+  color: olive;
+}
+.jt_fuchsia {
+  color: #c0ffc0;
+}
+.jt_yellow {
+  color: #ffde00;
+}
+.jt_blue {
+  color: #44aedf;
+}
+.jt_lime {
+  color: #c0ffc0;
+}
+.jt_orange {
+  color: #f7941c;
+}
+.jt_italic {
+  font-style: italic;
+}
+.jt_bold {
+  font-weight: bold;
+}
+.jt_underline {
+  text-decoration: underline;
+}
+.jt_strike {
+  text-decoration: line-through;
+}
+.jt_sample {
+  font-size: 80%;
+  line-height: 10px;
+}
+.jt_quote {
+  font-family: serif;
+  font-size: 110%;
+}
+.jt_spoiler {
+  cursor: help;
+  color: #383838;
+  background-color: #383838;
+}
+.jt_spoiler_show {
+  color: #f00;
+}
+.jt_codesmall {
+  font-family: monospace;
+}
+.jt_code {
+  display: block;
+  font-family: monospace;
+  border-left: 1px solid #666;
+  padding: 3px 0 3px 10px;
+  margin: 5px 0 5px 10px;
+  color: white;
+}
+.jt_code br {
+  display: none;
+}
+
+/* Overriding bootstrap CSS */
+
+.chatty-modal .modal-content {
+  background-color: #4c4d4f;
+}
+
+.modal-header {
+  border-bottom: 0 none;
+}
+
+.modal-footer {
+  border-top: 0 none;
+}
+
+.embedded-image {
+  display: block;
+  object-fit: scale-down;
+  max-width: 90%;
+  max-height: 100vh;
+}
+
+.embedded-youtube {
+  display: block;
+  object-fit: scale-down;
+}
+
+.embedded-mp4 {
+  display: block;
+  object-fit: scale-down;
+  outline: none;
+}
