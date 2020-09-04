@@ -1,0 +1,21 @@
+.toast {
+  width: 300px;
+  color: black;
+}
+
+.titleText {
+  font-weight: 700;
+}
+
+.titleIcon {
+  margin-right: 4px;
+  display: inline-block;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}

@@ -1,0 +1,38 @@
+.author {
+  white-space: nowrap;
+  color: yellow;
+  text-align: right;
+}
+
+.body {
+  text-overflow: ellipsis;
+  line-height: 1.5rem;
+  height: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  padding: 2.5px;
+}
+
+.container:focus {
+  outline: none;
+}
+
+.lolBar {
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.originalPoster {
+  background-color: #4c4d4f;
+  padding: 0 8px 0 8px;
+  border-radius: 25px;
+}
+
+.loggedInAuthor {
+  color: rgb(102, 204, 255);
+}

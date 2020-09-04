@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+}
+
+.button {
+  display: inherit;
+  margin-right: 15px;
+}
+
+.pinned {
+  color: white;
+}
+
+.unpinned {
+  color: gray;
+}

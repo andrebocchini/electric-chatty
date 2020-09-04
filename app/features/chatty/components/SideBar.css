@@ -1,0 +1,16 @@
+.container {
+  /* This height calc needs to be in this component in order to hide the scrollbar */
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.filter {
+  position: sticky;
+  top: 0;
+  background-color: black;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}

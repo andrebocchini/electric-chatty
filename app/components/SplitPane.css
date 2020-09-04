@@ -1,0 +1,12 @@
+.container {
+  height: 100%;
+  display: flex;
+}
+
+.left {
+  overflow-y: auto;
+}
+
+.right {
+  overflow-y: auto;
+}

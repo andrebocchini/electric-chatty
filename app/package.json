@@ -1,0 +1,20 @@
+{
+  "name": "electric-chatty",
+  "productName": "Electric Chatty",
+  "version": "1.0.0",
+  "description": "Electron application for the Shacknews Chatty",
+  "main": "./main.prod.js",
+  "author": {
+    "name": "Andre Bocchini",
+    "email": "andrebocchini@gmail.com",
+    "url": "https://github.com/andrebocchini"
+  },
+  "scripts": {
+    "electron-rebuild": "node -r ../internals/scripts/BabelRegister.js ../internals/scripts/ElectronRebuild.js",
+    "postinstall": "yarn electron-rebuild"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "keytar": "^6.0.1"
+  }
+}
