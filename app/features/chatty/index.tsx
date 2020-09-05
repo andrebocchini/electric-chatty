@@ -113,7 +113,10 @@ export default function ChattyScreen() {
   const threads = useSelector(getFilteredThreads);
 
   function refreshButtonVariant() {
-    if ((fetchEventsError || startupError) && mode === modes.CHATTY) {
+    if (
+      (fetchEventsError || startupError || fetchThreadsError) &&
+      mode === modes.CHATTY
+    ) {
       return 'danger';
     }
     if (isUpdatedSinceLastSort && mode === modes.CHATTY) {
@@ -349,9 +352,10 @@ export default function ChattyScreen() {
         onClick={handleRefreshThreads}
         variant={refreshButtonVariant()}
         disabled={
-          !isUpdatedSinceLastSort &&
           mode === modes.CHATTY &&
+          !isUpdatedSinceLastSort &&
           !fetchEventsError &&
+          !fetchThreadsError &&
           !startupError
         }
       >
