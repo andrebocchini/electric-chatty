@@ -591,7 +591,7 @@ export const tagPost = (post: Post, tag: string): AppThunk<Promise<void>> => {
     }
 
     try {
-      await chattyAPI.lolPost(credentials.username, post.id, tag);
+      await chattyAPI.lolPost(credentials, post.id, tag);
       dispatch(tagPostSuccess());
     } catch (error) {
       dispatch(tagPostFailure('Failed to tag post'));

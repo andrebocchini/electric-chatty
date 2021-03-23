@@ -449,22 +449,31 @@ describe('Chatty API', () => {
   });
 
   it('should lol a post successfully', async () => {
-    const success = 'ok tag39826051';
-    fetchMock.post(
-      'http://lmnopc.com/greasemonkey/shacklol/report.php',
-      success
-    );
-    const response = await lolPost('username', 39790577, 'lol');
+    const credentials = { username: 'username', password: 'password' };
+    const success = {
+      status: '1',
+      data: {
+        notifications:
+          '<div class="gamification-notifcation">\n\t<ul>\n\t\t\t\t\t<li class="active">\n\t<span class="notification-wrapper">\n\t\t<span class="points">\n\t\t\t+1\t\t</span>\n\t\t<span class="message">\n\t\t\tWoohoo! You just lol\'d a post\t\t</span>\n\t</span>\n</li>\n\t\t\t</ul>\n</div>\n',
+      },
+      message: '',
+    };
+
+    fetchMock.post('https://winchatty.com/v2/lol', success);
+    const response = await lolPost(credentials, 39790577, 'lol');
     expect(response).toEqual(success);
   });
 
   it('should fail to lol a post', async () => {
-    const failure = 'ERROR! Who are you?';
-    fetchMock.post(
-      'http://lmnopc.com/greasemonkey/shacklol/report.php',
-      failure
-    );
-    await expect(lolPost('', 39790577, 'lol')).rejects.toThrowError(
+    const credentials = { username: 'username', password: 'password' };
+    const failure = {
+      error: true,
+      code: 'ERR_INVALID_LOGIN',
+      message: 'You must be logged in to lol',
+    };
+
+    fetchMock.post('https://winchatty.com/v2/lol', failure);
+    await expect(lolPost(credentials, 39790577, 'lol')).rejects.toThrowError(
       new Error('You must be logged in to lol')
     );
   });

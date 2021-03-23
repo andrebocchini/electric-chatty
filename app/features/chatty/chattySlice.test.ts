@@ -3053,7 +3053,14 @@ describe('Chatty asynchronous actions', () => {
   });
 
   it('should tag a post', async () => {
-    mockChattyAPI.lolPost.mockResolvedValue('ok tag39826051');
+    mockChattyAPI.lolPost.mockResolvedValue({
+      status: '1',
+      data: {
+        notifications:
+          '<div class="gamification-notifcation">\n\t<ul>\n\t\t\t\t\t<li class="active">\n\t<span class="notification-wrapper">\n\t\t<span class="points">\n\t\t\t+1\t\t</span>\n\t\t<span class="message">\n\t\t\tWoohoo! You just lol\'d a post\t\t</span>\n\t</span>\n</li>\n\t\t\t</ul>\n</div>\n',
+      },
+      message: '',
+    });
 
     const store = mockStore({
       ...mockState,
@@ -3083,7 +3090,11 @@ describe('Chatty asynchronous actions', () => {
   });
 
   it('should fail to tag a post due to API error', async () => {
-    mockChattyAPI.lolPost.mockRejectedValue('ERROR! Who are you?');
+    mockChattyAPI.lolPost.mockRejectedValue({
+      error: true,
+      code: 'ERR_INVALID_LOGIN',
+      message: 'You must be logged in to lol',
+    });
 
     const store = mockStore({
       ...mockState,

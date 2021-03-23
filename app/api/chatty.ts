@@ -12,6 +12,7 @@ import {
 import WaitForEventResponse from '../types/WaitForEventResponse';
 import GetNewestEventIdResponse from '../types/GetNewestEventIdResponse';
 import { defaultHeaders, handleRequestErrors, handleApiErrors } from './common';
+import LOLResponse from '../types/LOLResponse';
 
 export function fetchThreads(threadIds?: number[]): Promise<Thread[]> {
   let url: string;
@@ -175,19 +176,19 @@ export function waitForEvent(eventId: number): Promise<WaitForEventResponse> {
 }
 
 export function lolPost(
-  username: string,
+  credentials: Credentials,
   postId: number,
   tag: string
-): Promise<string> {
+): Promise<LOLResponse> {
   return new Promise((resolve, reject) => {
     const requestBody = formurlencoded({
       tag,
-      who: username,
+      who: credentials.username,
       what: postId,
-      version: -1,
+      password: credentials.password,
     });
 
-    fetch('http://lmnopc.com/greasemonkey/shacklol/report.php', {
+    fetch('https://winchatty.com/v2/lol', {
       method: 'POST',
       mode: 'cors',
       cache: 'no-cache',
@@ -198,13 +199,9 @@ export function lolPost(
       body: requestBody,
     })
       .then(handleRequestErrors)
-      .then(async (response) => {
-        const responseBody = await response.text();
-
-        if (responseBody === 'ERROR! Who are you?') {
-          throw new Error('You must be logged in to lol');
-        }
-        return resolve(responseBody);
+      .then((response) => handleApiErrors<LOLResponse>(response))
+      .then((json) => {
+        return resolve(json);
       })
       .catch((error) => reject(error));
   });
