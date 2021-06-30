@@ -829,6 +829,37 @@ describe('Post utils tests', () => {
     expect(wrapper.equals(result)).toBeTruthy();
   });
 
+  it('should correctly build a post ready for display that contains a &lt; and &gt;', () => {
+    const input = {
+      id: 39791857,
+      threadId: 39790577,
+      parentId: 39790577,
+      author: 'gmoney',
+      category: 'ontopic',
+      date: '2020-07-18T09:53:00Z',
+      depth: 0,
+      body:
+        'Text goes here<br><span class="jt_red" key="arg">&lt;3 and &gt;3</span>',
+      lols: [],
+    };
+    const expected = React.createElement('div', { key: 'randomkey_1' }, [
+      React.createElement('span', { key: 'randomkey_2' }, 'Text goes here'),
+      React.createElement('br', { key: 'randomkey_5' }),
+      React.createElement(
+        'span',
+        {
+          className: 'jt_red',
+          key: 'randomkey_3',
+        },
+        [React.createElement('span', { key: 'randomkey_4' }, '<3 and >3')]
+      ),
+    ]);
+
+    const wrapper = shallow(expected);
+    const result = postForDisplay(input);
+    expect(wrapper.equals(result)).toBeTruthy();
+  });
+
   it('should build a post ready for display with a spoiler', () => {
     const input = {
       id: 39791857,

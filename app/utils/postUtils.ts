@@ -446,7 +446,8 @@ function buildReactNodes(
   }
 
   // Elements with just text as children
-  return React.createElement('span', { key: indexer.increment() }, node.text);
+  const cleanText = node.text.replace('&lt;', '<').replace('&gt;', '>');
+  return React.createElement('span', { key: indexer.increment() }, cleanText);
 }
 
 export function postForDisplay(
