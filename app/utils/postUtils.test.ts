@@ -3,6 +3,7 @@ import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import { NodeType } from 'node-html-parser';
+import ExifOrientationImg from 'react-exif-orientation-img';
 import {
   deSpoiler,
   stripAllHtml,
@@ -299,7 +300,7 @@ describe('Post utils tests', () => {
         { href: 'http://chattypics.com/image.jpg' },
         'http://chattypics.com/image.jpg'
       ),
-      React.createElement('img', {
+      React.createElement(ExifOrientationImg, {
         src: 'http://chattypics.com/image.jpg',
         className: 'embedded-image',
       }),
@@ -625,7 +626,7 @@ describe('Post utils tests', () => {
         { href: 'http://chattypics.com/image.jpg' },
         'http://chattypics.com/image.jpg'
       ),
-      React.createElement('img', {
+      React.createElement(ExifOrientationImg, {
         src: 'http://chattypics.com/image.jpg',
         className: 'embedded-image',
       }),
@@ -929,7 +930,7 @@ describe('Post utils tests', () => {
           { href: 'https://chattypics.com/files/clipboard_7ifwrz0724.png' },
           'https://chattypics.com/files/clipboard_7ifwrz0724.png'
         ),
-        React.createElement('img', {
+        React.createElement(ExifOrientationImg, {
           src: 'https://chattypics.com/files/clipboard_7ifwrz0724.png',
           className: 'embedded-image',
         }),

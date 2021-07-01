@@ -3,6 +3,7 @@ import React from 'react';
 import stripHtml from 'string-strip-html';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import { parse, NodeType } from 'node-html-parser';
+import ExifOrientationImg from 'react-exif-orientation-img';
 import EmbedPreferences from '../types/EmbedPreferences';
 import Spoiler from '../components/Spoiler';
 import Post from '../types/Post';
@@ -223,7 +224,7 @@ export function getImageEmbed(
   const url = node.text;
   return React.createElement('div', { key }, [
     React.createElement('a', { href: url }, url),
-    React.createElement('img', {
+    React.createElement(ExifOrientationImg, {
       src: node.text,
       className: 'embedded-image',
     }),
