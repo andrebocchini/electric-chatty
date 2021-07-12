@@ -1,8 +1,11 @@
 import React from 'react';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import classnames from 'classnames';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import Post from '../../../types/Post';
 import styles from './ExpandedPostHeader.css';
+
+dayjs.extend(relativeTime);
 
 type Props = {
   className?: string;
@@ -14,7 +17,7 @@ type Props = {
 export default function ExpandedPostHeader(props: Props) {
   const { className, id, loggedInUser, post } = props;
   const { author, date } = post;
-  const displayDate = moment(Date.parse(date)).fromNow();
+  const displayDate = dayjs(date).fromNow();
 
   function authorStyle() {
     if (loggedInUser === author) {

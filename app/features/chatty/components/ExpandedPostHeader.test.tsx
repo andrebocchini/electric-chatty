@@ -1,7 +1,7 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import ExpandedPostHeader from './ExpandedPostHeader';
 import Post from '../../../types/Post';
 
@@ -38,7 +38,7 @@ describe('ExpandedPostHeader tests', () => {
   });
 
   it('renders the post date', () => {
-    const displayDate = moment(Date.parse(post.date)).fromNow();
+    const displayDate = dayjs(post.date).fromNow();
     const wrapper = shallow(<ExpandedPostHeader post={post} />);
     expect(wrapper.find('.date').text()).toEqual(displayDate);
   });

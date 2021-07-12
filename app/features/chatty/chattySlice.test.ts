@@ -1,4 +1,4 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
 import Store from 'electron-store';
 import * as chattyAPI from '../../api/chatty';
 import reducer, {
@@ -412,9 +412,7 @@ describe('Chatty synchronous actions', () => {
   });
 
   it('should handle waitForEventsSuccess with lol count updates', () => {
-    const threadPostDate = moment(moment.now())
-      .subtract(5, 'hours')
-      .toISOString();
+    const threadPostDate = dayjs().subtract(5, 'hour').toISOString();
     const payload = {
       lastEventId: 1,
       now: new Date(),
@@ -625,9 +623,7 @@ describe('Chatty synchronous actions', () => {
   });
 
   it('should handle waitForEventsSuccess with new posts', () => {
-    const nonExpiredThreadPostDate = moment(moment.now())
-      .subtract(5, 'hours')
-      .toISOString();
+    const nonExpiredThreadPostDate = dayjs().subtract(5, 'hour').toISOString();
     const payload = {
       lastEventId: 1,
       now: new Date(),
@@ -864,12 +860,8 @@ describe('Chatty synchronous actions', () => {
   });
 
   it('should get rid of expired posts when processing new events', () => {
-    const nonExpiredThreadPostDate = moment(moment.now())
-      .subtract(5, 'hours')
-      .toISOString();
-    const expiredThreadPostDate = moment(moment.now())
-      .subtract(19, 'hours')
-      .toISOString();
+    const nonExpiredThreadPostDate = dayjs().subtract(5, 'hour').toISOString();
+    const expiredThreadPostDate = dayjs().subtract(19, 'hour').toISOString();
     const payload = {
       lastEventId: 1,
       now: new Date(),

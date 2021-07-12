@@ -1,8 +1,11 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import SideBarCellHeader from './SideBarCellHeader';
+
+dayjs.extend(relativeTime);
 
 configure({ adapter: new Adapter() });
 
@@ -19,7 +22,7 @@ describe('SideBarCellHeader tests', () => {
   });
 
   it('it renders a header with the thread author name and date', () => {
-    const displayDate = moment(Date.parse('2020-07-18T00:00:00Z')).fromNow();
+    const displayDate = dayjs('2020-07-18T00:00:00Z').fromNow();
     const wrapper = shallow(
       <SideBarCellHeader
         author="author"

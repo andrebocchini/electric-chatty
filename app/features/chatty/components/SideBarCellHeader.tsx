@@ -1,6 +1,6 @@
 import React from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import classnames from 'classnames';
 import LOL from '../../../types/LOL';
 import LOLBar from './LOLBar';
@@ -19,7 +19,7 @@ type Props = {
 
 export default function SideBarCellHeader(props: Props) {
   const { author, date, loggedInUser, lols } = props;
-  const displayDate = moment(Date.parse(date)).fromNow();
+  const displayDate = dayjs(date).fromNow();
   const hoursUtilThreadExpires = hoursUntilExpiration(
     new Date(date),
     new Date()
