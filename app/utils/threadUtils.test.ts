@@ -176,7 +176,7 @@ const thread: Thread = {
 
 describe('Thread utils tests', () => {
   it('should return that a thread is expired', () => {
-    const expiredThreadPostDate = dayjs().subtract(19, 'hour');
+    const expiredThreadPostDate = dayjs().subtract(19, 'hour').toISOString();
     const expiredThread: Thread = {
       threadId: 39790577,
       root: {
@@ -342,7 +342,7 @@ describe('Thread utils tests', () => {
   });
 
   it('should return that a thread is not expired', () => {
-    const expiredThreadPostDate = dayjs().subtract(5, 'hour');
+    const expiredThreadPostDate = dayjs().subtract(5, 'hour').toISOString();
     const expiredThread: Thread = {
       threadId: 39790577,
       root: {
